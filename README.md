@@ -1,6 +1,6 @@
 # directus
 
-Directus - Docker-compose
+Directus - Plataforma de base de datos - Docker-compose
 
 Ver en "localhost:8200"
 
