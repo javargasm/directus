@@ -10,6 +10,9 @@ services:
       - "8200:8055"
     volumes:
       - ./uploads:/directus/uploads
+      - ./database:/directus/database
+      - ./uploads:/directus/uploads
+      - ./extensions:/directus/extensions
     networks:
       - directus
     depends_on:
@@ -29,6 +32,12 @@ services:
       CACHE_REDIS: redis://cache:6379
       ADMIN_EMAIL: 'admin@example.com'
       ADMIN_PASSWORD: p4ssw0rd
+      ACCESS_TOKEN_TTL: '30m'
+      REFRESH_TOKEN_TTL: '1d'
+      CORS_ENABLED: true
+      CORS_ORIGIN: true
+      CORS_METHODS: GET,PUT,POST,PATCH,DELETE,OPTIONS
+      EXTENSIONS_AUTO_RELOAD: true
       
   database:
     image: postgis/postgis:14-master    
